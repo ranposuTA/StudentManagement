@@ -1,5 +1,6 @@
 package raisetech.Student.management;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -40,5 +41,10 @@ public class Application {
   @DeleteMapping("/student")
   public void deleteStudent(String name) {
     repository.deleteStudent(name);
+  }
+
+  @GetMapping("/students")
+  public List<Student> getAllStudents() {
+    return repository.findAll();
   }
 }
